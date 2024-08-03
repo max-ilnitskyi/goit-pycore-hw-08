@@ -1,4 +1,5 @@
 from .book import AddressBook, Record, ValidationError
+from .data import save_data, load_data
 
 
 def input_error(func):
@@ -95,7 +96,7 @@ EXIT_COMMANDS = {"exit", "close"}
 
 
 def run_bot():
-    book = AddressBook()
+    book = load_data()
     print("Welcome to the assistant bot!")
     while True:
         user_input = input("Enter a command: ")
@@ -135,6 +136,7 @@ def run_bot():
 
         if command in EXIT_COMMANDS:
             print("Good bye!")
+            save_data(book)
             break
 
         print("Invalid command.")
