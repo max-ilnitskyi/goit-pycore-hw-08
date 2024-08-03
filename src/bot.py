@@ -1,4 +1,4 @@
-from book import AddressBook, Record, ValidationError
+from .book import AddressBook, Record, ValidationError
 
 
 def input_error(func):
@@ -94,7 +94,7 @@ def parse_input(raw_input: str):
 EXIT_COMMANDS = {"exit", "close"}
 
 
-def main():
+def run_bot():
     book = AddressBook()
     print("Welcome to the assistant bot!")
     while True:
@@ -138,7 +138,3 @@ def main():
             break
 
         print("Invalid command.")
-
-
-if __name__ == "__main__":
-    main()
